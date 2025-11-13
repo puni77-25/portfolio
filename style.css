@@ -1,0 +1,465 @@
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+        :root {
+            --bg-color: #121212;
+            --primary-card-bg: #1e1e1e;
+            --secondary-card-bg: #252525;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --primary-accent: #007bff; /* Bright Blue */
+            --secondary-accent: #00bcd4; /* Cyan */
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Underline effect for section headers */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            border-radius: 2px;
+            margin: 8px auto 0;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-card-bg);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary-accent);
+            color: var(--heading-color);
+        }
+
+        /* Style for the new 'View Resume' button */
+        .nav-cta a {
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--primary-accent);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-cta a:hover {
+            background-color: var(--primary-accent);
+            color: var(--heading-color) !important; /* Override default hover */
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--heading-color), var(--secondary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
+        
+        .hero-summary {
+            font-size: 1rem;
+            margin-bottom: 32px;
+            color: #b0b0b0; /* Lighter text for summary */
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-links a {
+            display: inline-block;
+            background: var(--primary-card-bg);
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            border: 1px solid transparent;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-links a:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-accent);
+            color: var(--primary-accent);
+        }
+
+        /* --- Generic Card Style --- */
+        .card {
+            background: var(--primary-card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.1);
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        
+        .skill-card h3 {
+            color: var(--secondary-accent);
+            border-bottom: 2px solid var(--secondary-accent);
+            padding-bottom: 8px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 8px;
+        }
+
+        /* Custom list-style-type */
+        .skill-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-accent);
+            font-weight: 700;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--secondary-card-bg);
+        }
+        
+        .project-card h3 {
+            color: var(--primary-accent);
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+        }
+
+        /* --- Experience & Education --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* The vertical line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(var(--primary-accent), var(--secondary-accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        /* Timeline card alignment */
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        /* The circle on the timeline */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--primary-accent);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        
+        /* Arrow pointers */
+        .timeline-item.left .timeline-content::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--primary-card-bg);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--primary-card-bg);
+        }
+
+        .timeline-item.right .timeline-content::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--primary-card-bg);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--primary-card-bg) transparent transparent;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: var(--primary-card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary-accent);
+        }
+        
+        .timeline-content h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--secondary-accent);
+            margin-bottom: 8px;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #b0b0b0;
+            margin-bottom: 8px;
+        }
+
+        /* --- Certifications --- */
+        #certifications {
+            text-align: center;
+        }
+        .cert-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .cert-list li {
+            background: var(--primary-card-bg);
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary-accent);
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+        }
+
+        #contact .hero-links { /* Re-using hero-links style */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--primary-card-bg);
+            margin-top: 60px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        /* --- Responsive Design --- */
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple hide for mobile, can be replaced with hamburger */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            /* --- Timeline Mobile --- */
+            
+            /* Make timeline vertical */
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px; /* Space for line and dot */
+                padding-right: 10px;
+            }
+
+            .timeline-item.left,
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 10px; /* Position dot on the line */
+            }
+            
+            /* All arrows point right */
+            .timeline-item .timeline-content::before {
+                left: -10px;
+                border: medium solid var(--primary-card-bg);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--primary-card-bg) transparent transparent;
+            }
+            
+            .timeline-item.left .timeline-content::before,
+            .timeline-item.right .timeline-content::before {
+                 left: -10px;
+                 border-width: 10px 10px 10px 0;
+                 border-color: transparent var(--primary-card-bg) transparent transparent;
+            }
+        }
