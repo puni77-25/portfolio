@@ -1,4 +1,4 @@
-   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
         :root {
             --bg-color: #121212;
@@ -23,6 +23,12 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.7;
+        }
+
+        .header-video {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove any default inline spacing */
         }
 
         .container {
@@ -394,8 +400,9 @@
         }
 
         #contact .hero-links { /* Re-using hero-links style */
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
+            
         }
 
         /* --- Footer --- */
@@ -463,3 +470,21 @@
                  border-color: transparent var(--primary-card-bg) transparent transparent;
             }
         }
+        
+        /* Fixed the broken CSS that was here */
+        #certifications, #get-in-touch {
+            text-align: center;
+        }
+    .linp img {
+    width: 55px;      /* adjust size as you prefer */
+    height: 55px;
+    border-radius: 12px;
+    padding: 10px;
+    background: var(--primary-card-bg);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease;
+}
+
+.linp img:hover {
+    transform: scale(1.1);
+}
